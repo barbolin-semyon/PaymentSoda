@@ -48,7 +48,6 @@ class MainActivity : ComponentActivity() {
 
                             if (title.value.isNotEmpty()) {
 
-                                Log.i("QWE", "red ${title.value}")
                                 Text(
                                     text = title.value,
                                     modifier = Modifier.fillMaxWidth().weight(1f),
@@ -61,9 +60,6 @@ class MainActivity : ComponentActivity() {
                     }
                 ) {
                     MyNavHost(navContoller = navController, title = title)
-                    navController.navigate(Screens.SelectAddress.route)
-                    //navController.navigate(Screens.ProductSelection.route)
-                    //navController.navigate(Screens.PaymentResult.route)
                 }
             }
         }

@@ -12,7 +12,6 @@ import com.example.paymentsoda.ui.product_selection.ProductSelection
 fun MyNavHost(navContoller: NavHostController, title: MutableState<String>) {
     NavHost(navController = navContoller, startDestination = Screens.ProductSelection.route) {
         composable(Screens.ProductSelection.route) {
-            Log.i("QWE", "nav ${title.value}")
             title.value = Screens.ProductSelection.name
             ProductSelection(navContoller)
         }
