@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.Card
 import androidx.compose.material.Icon
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.*
@@ -31,7 +32,7 @@ fun ProductSelection(navContoller: NavHostController) {
 
         val checkedProducts = remember { mutableListOf<Soda>() }
 
-        LazyRow() {
+        LazyRow(modifier = Modifier.padding(top = 16.dp)) {
             items(sodaTestList) { product ->
 
                 val check = remember { mutableStateOf(checkedProducts.contains(product))}
@@ -60,26 +61,23 @@ fun ProductSelection(navContoller: NavHostController) {
 @Composable
 private fun ItemProduct(product: Soda, isCheck: Boolean, checked: () -> Unit) {
 
+    val paddingTop = if (isCheck) 32.dp else 0.dp
 
-    Box(
+
+    Row(
         Modifier
-            .width(250.dp)
+            .padding(top = paddingTop, start = 8.dp, end = 8.dp)
+            .width(300.dp)
             .height(350.dp)
-            .padding(start = 24.dp, top = 16.dp)
             .background(Gray200)
     ) {
 
         Image(
             painter = painterResource(id = product.imageId),
             contentDescription = product.title,
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxSize().weight(1f)
         )
-    }
 
-    Row(
-        Modifier
-            .padding(end = 16.dp)
-    ) {
         TextButton(onClick = { checked() } ) {
             Icon(
                 tint = if (isCheck) Teal500 else Gray500,
@@ -90,6 +88,7 @@ private fun ItemProduct(product: Soda, isCheck: Boolean, checked: () -> Unit) {
                 )
         }
     }
+
 }
 
 
