@@ -6,6 +6,7 @@ import androidx.compose.runtime.MutableState
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.paymentsoda.ui.CartScreen.CartScreen
 import com.example.paymentsoda.ui.product_selection.ProductSelection
 
 @Composable
@@ -17,6 +18,7 @@ fun MyNavHost(navContoller: NavHostController, title: MutableState<String>) {
         }
         composable(Screens.Cart.route) {
             title.value = Screens.Cart.name
+            CartScreen(navController = navContoller)
         }
         composable(Screens.SelectAddress.route) {
             title.value = Screens.SelectAddress.name
