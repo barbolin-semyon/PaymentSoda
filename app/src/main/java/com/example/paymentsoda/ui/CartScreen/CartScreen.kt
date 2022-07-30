@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.paymentsoda.ButtonProcessedForPayment
+import com.example.paymentsoda.RechtangleWithBorder
 import com.example.paymentsoda.data.Soda
 import com.example.paymentsoda.data.allPrice
 import com.example.paymentsoda.data.checkedProducts
