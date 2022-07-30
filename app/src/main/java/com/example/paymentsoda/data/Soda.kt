@@ -1,10 +1,13 @@
 package com.example.paymentsoda.data
 
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import com.example.paymentsoda.R
 
 data class Soda(
     val title: String,
-    val imageId: Int
+    val imageId: Int,
+    var price: Float = 5.3f
 )
 
 val sodaTestList = listOf(
@@ -17,3 +20,7 @@ val sodaTestList = listOf(
     Soda("Pepsi", R.drawable.soda_3),
     Soda("Sprite", R.drawable.soda_4),
 )
+
+val checkedProducts =  mutableListOf<Soda>()
+val sizeCheckedProducts = mutableStateOf(0)
+val allPrice = mutableStateOf(0f)
