@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -90,5 +89,18 @@ fun ButtonProcessedForPayment(onClick: () -> Unit) {
             fontSize = 18.sp,
             modifier = Modifier.padding(vertical = 8.dp, horizontal = 8.dp)
         )
+    }
+}
+
+@Composable
+fun RechtangleWithBorder(modifier: Modifier, content: @Composable () -> Unit) {
+    Row(
+        modifier
+            .border(1.dp, color = Gray500, shape = RoundedCornerShape(8.dp))
+            .padding(4.dp),
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        content()
     }
 }

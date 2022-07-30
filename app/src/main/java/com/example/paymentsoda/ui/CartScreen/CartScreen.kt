@@ -77,16 +77,3 @@ private fun AmountView() {
         }
     }
 }
-
-@Composable
-fun RechtangleWithBorder(modifier: Modifier, content: @Composable () -> Unit) {
-    Row(
-        modifier
-            .border(1.dp, color = Gray500, shape = RoundedCornerShape(8.dp))
-            .padding(4.dp),
-        horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        content()
-    }
-}
