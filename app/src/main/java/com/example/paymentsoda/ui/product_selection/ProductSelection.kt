@@ -6,23 +6,20 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.material.TextButton
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.paymentsoda.R
 import com.example.paymentsoda.data.*
 import com.example.paymentsoda.ui.Title
-import com.example.paymentsoda.ui.theme.Gray200
-import com.example.paymentsoda.ui.theme.Gray500
-import com.example.paymentsoda.ui.theme.Teal500
+import com.example.paymentsoda.ui.navigation.Screens
+import com.example.paymentsoda.ui.theme.*
 
 @Composable
 fun ProductSelection(navContoller: NavHostController) {
@@ -31,12 +28,33 @@ fun ProductSelection(navContoller: NavHostController) {
         LazyRowProducts()
         InformationTable()
         AllPrice()
+        ButtonPurchace(navContoller = navContoller)
+    }
+}
+
+@Composable
+private fun ButtonPurchace(navContoller: NavHostController) {
+    Button(
+        onClick = { navContoller.navigate(Screens.Cart.route) },
+        colors = ButtonDefaults.buttonColors(backgroundColor = Red500),
+        modifier = Modifier.padding(top = 16.dp)
+    ) {
+        Text(
+            text = "Purchase now",
+            color = White,
+            fontSize = 18.sp,
+            modifier = Modifier.padding(horizontal = 32.dp, vertical = 8.dp)
+        )
     }
 }
 
 @Composable
 private fun AllPrice() {
-    Text(text = "$${allPrice.value}", style = MaterialTheme.typography.h3, modifier = Modifier.padding(top = 36.dp))
+    Text(
+        text = "$${allPrice.value}",
+        style = MaterialTheme.typography.h3,
+        modifier = Modifier.padding(top = 36.dp)
+    )
 }
 
 
