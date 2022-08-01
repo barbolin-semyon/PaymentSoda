@@ -10,18 +10,38 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.ui.graphics.PathFillType
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.paymentsoda.data.BankCard
 import com.example.paymentsoda.ui.theme.Red200
 import com.example.paymentsoda.ui.theme.Red500
 import com.example.paymentsoda.ui.theme.White
 import kotlin.random.Random
 
 @Composable
-fun CardScreen(colorOne: Color, colorTwo: Color, modifier: Modifier) {
+fun CardScreen(colorOne: Color, colorTwo: Color, modifier: Modifier, card: BankCard) {
     Box(modifier = modifier) {
         BackgroundForCard(colorOne = colorOne, colorTwo = colorTwo)
-        Text(text = "dfsfgdgdf", color = White)
+
+        Column(Modifier.fillMaxSize().padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
+
+            }
+
+            TextInCard(card.date)
+            TextInCard("xxxx xxxx xxxx ${card.requisites}")
+            TextInCard(card.nameMaster)
+
+        }
     }
+}
+
+@Composable
+private fun TextInCard(text: String) {
+    Text(text = text, color = White, fontSize = 18.sp)
 }
 
 @Composable
