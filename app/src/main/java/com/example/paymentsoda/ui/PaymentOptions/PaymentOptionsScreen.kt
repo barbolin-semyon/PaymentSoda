@@ -45,7 +45,7 @@ fun PaymentOptionsScreen(navController: NavController) {
             }
 
             ButtonProcessedForPayment {
-                navController.navigate(Screens.SelectedCard.route)
+                navController.navigate(Screens.WitingForOTP.route)
             }
         }
     }

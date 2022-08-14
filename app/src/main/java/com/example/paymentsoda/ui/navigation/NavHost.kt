@@ -10,6 +10,7 @@ import com.example.paymentsoda.ui.CartScreen.CartScreen
 import com.example.paymentsoda.ui.PaymentOptions.PaymentOptionsScreen
 import com.example.paymentsoda.ui.product_selection.ProductSelection
 import com.example.paymentsoda.ui.select_address.SelectAddressScreen
+import com.example.paymentsoda.ui.witingForOTP.WitingForOTPScreen
 
 @Composable
 fun MyNavHost(navContoller: NavHostController, title: MutableState<String>) {
@@ -35,6 +36,7 @@ fun MyNavHost(navContoller: NavHostController, title: MutableState<String>) {
         }
         composable(Screens.WitingForOTP.route) {
             title.value = Screens.WitingForOTP.name
+            WitingForOTPScreen(navController = navContoller)
         }
         composable(Screens.PaymentResult.route) {
             title.value = Screens.PaymentResult.name
