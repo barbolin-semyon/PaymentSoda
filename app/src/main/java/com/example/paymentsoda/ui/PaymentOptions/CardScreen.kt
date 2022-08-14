@@ -12,6 +12,7 @@ import androidx.compose.material.Text
 import androidx.compose.ui.graphics.PathFillType
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.paymentsoda.data.BankCard
@@ -21,7 +22,7 @@ import com.example.paymentsoda.ui.theme.White
 import kotlin.random.Random
 
 @Composable
-fun CardScreen(colorOne: Color, colorTwo: Color, modifier: Modifier, card: BankCard) {
+fun CardScreen(colorOne: Color, colorTwo: Color, fontSize: TextUnit, modifier: Modifier, card: BankCard) {
     Box(modifier = modifier) {
         BackgroundForCard(colorOne = colorOne, colorTwo = colorTwo)
 
@@ -31,17 +32,17 @@ fun CardScreen(colorOne: Color, colorTwo: Color, modifier: Modifier, card: BankC
 
             }
 
-            TextInCard(card.date)
-            TextInCard("xxxx xxxx xxxx ${card.requisites}")
-            TextInCard(card.nameMaster)
+            TextInCard(card.date, fontSize)
+            TextInCard("xxxx xxxx xxxx ${card.requisites}", fontSize)
+            TextInCard(card.nameMaster, fontSize)
 
         }
     }
 }
 
 @Composable
-private fun TextInCard(text: String) {
-    Text(text = text, color = White, fontSize = 18.sp)
+private fun TextInCard(text: String, fontSize: TextUnit) {
+    Text(text = text, color = White, fontSize = fontSize)
 }
 
 @Composable
