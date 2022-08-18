@@ -1,5 +1,6 @@
 package com.example.paymentsoda.ui.witingForOTP
 
+import android.os.Bundle
 import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -22,10 +23,10 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.paymentsoda.ui.navigation.Screens
 
 @Composable
 fun WitingForOTPScreen(navController: NavController) {
-    val correctCode = "5635"
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         TextViewCode(
             sizeCode = 4,
@@ -33,7 +34,8 @@ fun WitingForOTPScreen(navController: NavController) {
             sizeField = 90.dp,
             shape = RoundedCornerShape(8.dp)
         ) {
-            Log.i("QWE", "complete")
+            navController.currentBackStackEntry?.arguments?.putString("code", it)
+            navController.navigate(Screens.PaymentResult.route)
         }
     }
 }

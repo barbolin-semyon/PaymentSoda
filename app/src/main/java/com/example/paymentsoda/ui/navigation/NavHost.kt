@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.paymentsoda.ui.CartScreen.CartScreen
 import com.example.paymentsoda.ui.PaymentOptions.PaymentOptionsScreen
+import com.example.paymentsoda.ui.paymentResult.PaymentResultScreen
 import com.example.paymentsoda.ui.product_selection.ProductSelection
 import com.example.paymentsoda.ui.select_address.SelectAddressScreen
 import com.example.paymentsoda.ui.witingForOTP.WitingForOTPScreen
@@ -40,6 +41,10 @@ fun MyNavHost(navContoller: NavHostController, title: MutableState<String>) {
         }
         composable(Screens.PaymentResult.route) {
             title.value = Screens.PaymentResult.name
+
+            val code = navContoller.previousBackStackEntry?.arguments?.getString("code")
+            PaymentResultScreen(navController = navContoller, code = code!!)
+
         }
     }
 }
