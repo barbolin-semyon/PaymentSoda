@@ -48,7 +48,7 @@ fun TextViewCode(
 ) {
     val localFocusManager = LocalFocusManager.current
 
-    val writeCode = remember { mutableStateOf("    ") }
+    val writeCode = remember { mutableStateOf(" ".repeat(sizeCode)) }
 
     Row(modifier = modifier) {
         repeat(sizeCode) { index ->
