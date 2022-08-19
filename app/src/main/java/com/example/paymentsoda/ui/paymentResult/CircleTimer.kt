@@ -40,7 +40,12 @@ fun CircleTimer(
     isReverse: MutableState<Boolean>,
     onTimerCompleted: () -> Unit
 ) {
-    Box(contentAlignment = Alignment.Center, modifier = Modifier.size(size = size)) {
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = Modifier
+            .size(size = size)
+            .padding(padding)
+    ) {
         val sweepAngle by animateFloatAsState(
             targetValue = if (isReverse.value) 0f else 360f,
             animationSpec = tween(durationMillis = if (isReverse.value) 60000 else 1000),
@@ -55,7 +60,6 @@ fun CircleTimer(
 
         Circle(
             size = size,
-            padding = padding,
             colors = colors,
             sweepAngle = sweepAngle
         )
@@ -76,14 +80,12 @@ fun CircleTimer(
 @Composable
 private fun Circle(
     size: Dp = 200.dp,
-    padding: PaddingValues = PaddingValues(),
     colors: CircleTimerColor = CircleTimerColor(Teal200, Teal500, Black),
     sweepAngle: Float,
 ) {
     Canvas(
         modifier = Modifier
-            .size(size = size)
-            .padding(paddingValues = padding),
+            .size(size = size),
         contentDescription = "",
         onDraw = {
 

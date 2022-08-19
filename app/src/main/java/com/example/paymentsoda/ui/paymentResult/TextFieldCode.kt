@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun TextViewCode(
     sizeCode: Int,
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     sizeField: Dp,
     shape: Shape,
     onWritedCode: (code: String) -> Unit,
