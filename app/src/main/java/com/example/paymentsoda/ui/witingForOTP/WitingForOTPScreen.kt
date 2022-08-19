@@ -1,22 +1,16 @@
 package com.example.paymentsoda.ui.witingForOTP
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -30,7 +24,7 @@ import com.example.paymentsoda.ui.theme.White
 @Composable
 fun WitingForOTPScreen(navController: NavController) {
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
-        Title()
+        TitleCenter()
 
         TextViewCode(
             sizeCode = 4,
@@ -59,7 +53,7 @@ fun WitingForOTPScreen(navController: NavController) {
 }
 
 @Composable
-private fun Title() {
+fun TitleCenter() {
     Text(
         text = "Waiting for the OTP",
         style = MaterialTheme.typography.h5,

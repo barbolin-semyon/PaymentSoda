@@ -1,4 +1,4 @@
-package com.example.paymentsoda.ui.paymentResult
+package com.example.paymentsoda.ui.witingForOTP
 
 import android.annotation.SuppressLint
 import android.util.Log
