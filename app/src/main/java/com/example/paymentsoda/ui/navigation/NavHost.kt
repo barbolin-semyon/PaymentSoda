@@ -41,8 +41,8 @@ fun MyNavHost(navContoller: NavHostController, title: MutableState<String>) {
         }
         composable(Screens.PaymentResult.route) {
             title.value = Screens.PaymentResult.name
-
-            val code = navContoller.previousBackStackEntry?.arguments?.getString("code")
+            var code = navContoller.previousBackStackEntry?.arguments?.getString("code")
+            if (code == null) code = "3245"
             PaymentResultScreen(navController = navContoller, code = code!!)
 
         }

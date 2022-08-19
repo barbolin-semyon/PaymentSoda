@@ -16,7 +16,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.paymentsoda.ui.navigation.Screens
-import com.example.paymentsoda.ui.paymentResult.CircleTimer
 import com.example.paymentsoda.ui.paymentResult.TextViewCode
 import com.example.paymentsoda.ui.theme.Gray500
 import com.example.paymentsoda.ui.theme.White
@@ -24,7 +23,10 @@ import com.example.paymentsoda.ui.theme.White
 @Composable
 fun WitingForOTPScreen(navController: NavController) {
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
-        TitleCenter()
+        TitleCenter(
+            "Waiting for the OTP",
+            "Interactively expedite revolutionary ROI after briks-and-clicks alignments"
+        )
 
         TextViewCode(
             sizeCode = 4,
@@ -53,15 +55,15 @@ fun WitingForOTPScreen(navController: NavController) {
 }
 
 @Composable
-fun TitleCenter() {
+fun TitleCenter(h1: String, h2: String) {
     Text(
-        text = "Waiting for the OTP",
+        text = h1,
         style = MaterialTheme.typography.h5,
         modifier = Modifier.padding(top = 16.dp)
     )
 
     Text(
-        text = "Interactively expedite revolutionary ROI after briks-and-clicks alignments",
+        text = h2,
         style = MaterialTheme.typography.body1,
         color = Gray500,
         modifier = Modifier
